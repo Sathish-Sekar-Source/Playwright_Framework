@@ -1,0 +1,89 @@
+
+npm init playwright@latest
+npx playwright test HomePageTest.spec.js
+npx playwright test HomePageTest.spec.js --project=chromium
+npx playwright test HomePageTest.spec.js --project=chromium --headed
+npx playwright test HomePageTest.spec.js --project=chromium --headed --debug
+npx playwright test tests/HomePageTest.spec.js --project=chromium --headed
+npx playwright test -g "Device Emulation" --headed
+npx playwright test --ui
+
+npx playwright codegen
+npx playwright codegen --help
+npx playwright codegen -o tests/mytest.spec.js            // Record
+npx playwright codegen test --project chromium --headed   // Execute All
+
+npx playwright codegen --target javascript   // Program language generate
+npx playwright codegen --browser chromium
+npx playwright codegen --browser chromium -o tests/mytest.spec.js   //open chromium browser
+
+npx playwright codegen --device "iPhone 13"  // Record by iPhone Simulator
+npx playwright codegen --device "iPhone12"   // if we enter wrong phone name it display all
+npx playwright codegen --viewport-size "1280,720" 
+
+npx playwright show-report
+npx playwright show-trace test-results\Tracing-test-chromium\trace.zip
+npx playwright test tests/Tags.spec.js --project=chromium --grep sanity
+npx playwright test tests/Tags.spec.js --project=chromium --grep reg
+npx playwright test tests/Tags.spec.js --project=chromium --grep [reg, sanity]
+npx playwright test tests/Tags.spec.js --project=chromium --grep reg --grep-invert sanity
+npx playwright test tests/Reporters.spec.js --reporter=list // or specify in config.js
+npx playwright test tests/Reporters.spec.js --reporter=line
+npx playwright test tests/Reporters.spec.js --reporter=dot
+npx playwright test tests/Reporters.spec.js --reporter=html
+npx playwright test tests/Reporters.spec.js --reporter=json
+npx playwright test tests/Reporters.spec.js --reporter=junit
+
+npm install -D allure-playwright
+npm install -g allure-commandline --save-dev
+
+
+npm install -D allure-playwright
+npx playwright test --reporter=line,allure-playwright
+***
+npx playwright test tests/Reporters.spec.js --project=chromium
+allure generate ./allure-results -o ./allure-report --clean
+allure open ./allure-report
+***
+
+Fleky tests
+config file retries
+npx playwright test tests/Retrytest.spec.js --project=chromium --headed --retries=1
+
+expect(page).toHaveURL()  //Page has URL
+expect(page).toHaveTitle()  //Page has title
+
+expect(locator).toBeVisible()  //Element is visible
+expect(locator).toBeEnabled()  // Control is enabled
+expect(locator).toBeDisabled()  // Element is disabled
+expect(locator).toBeChecked()  //Radio/Checkbox is checked
+expect(locator).toHaveAttribute()  //Element has attribute
+expect(locator).toHaveText()       //Element matches text
+expect(locator).toContainText()     //Element contains text
+expect(locator).toHaveValue(value)  //Input has a value
+expect(locator).toHaveCount()       //List of elements has given length
+
+
+JavaScript --- Dynamically typed language
+let age=30
+let name="John"
+
+TypesScript --- Statically typed language
+
+let age:number=30
+let name:string="John"
+
+Why TypeScript
+______________
+
+JavaScript (ES3,ES4,ES5,ES6)
+ECMAScript - ECMAScript(ES) is the standard to which all JavaScript code must comply.
+
+TypeScript - superset of JavaScript
+
+A vendor such as Microsoft cannot add features to the JavaScript language without breaking ECMAScript
+compliance.
+In contract, with TypeScript, Microsoft can add any new features in wants, so long as the generated
+JavaScript is ECMAScript-compliant.
+That gives Microsoft all the freedom in the world to make TypeScript as feature-full as any other programming language.
+
